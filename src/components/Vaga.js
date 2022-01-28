@@ -1,15 +1,17 @@
 import React from "react";
 import "../componentes-css/Vaga.css";
+import { useState } from "react";
+
 export default function Vaga(){
 
-const datas = require('../data.json');
-
-var i = parseInt(0);
+var datas = require('../data.json');
 
 var classNameNew;
 var classNameFeatured;
 var mensagemNew;
 var mensagemFeatured = 'Featured';
+
+const [linguagem, setLinguagem] = useState([]);
 
 function validacaoNew(item){
     if(item.new === true){
@@ -31,11 +33,26 @@ function validacaoFeature(item){
     }
 }
 
+function limparBusca(){
+   
+    setLinguagem('');
+
+}
+
 return(
     <>
         <div className="container">
         <div className="header"></div>
-            {datas.map((item) => (
+        <div className="searchBar">
+            <button onClick={limparBusca}>Clear</button>
+        </div>
+            {datas.filter((item) => {
+                if(linguagem == ""){
+                    return item
+                }else if(item.languages.includes(linguagem)){
+                    return item
+                }
+            }).map((item) => (
                 <ul key={item.id}>
                     {validacaoNew(item)}
                     {validacaoFeature(item)}
@@ -61,8 +78,8 @@ return(
                         <div className="filtros">
                             {item.languages.map((languages) => (
                                 <li key={languages}>
-                                    <button><strong>{languages}</strong></button>
-                                </li>                            
+                                    <button onClick={() => setLinguagem(languages)}><strong>{languages}</strong></button>
+                                </li>
                             ))}
                         </div>
                     </div>
@@ -71,5 +88,4 @@ return(
         </div>
     </>
 );
-
 }

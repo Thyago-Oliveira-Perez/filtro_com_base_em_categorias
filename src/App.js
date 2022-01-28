@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import SearchInput from "./SearchInput";
+import "./index.css";
+import Vaga from "./components/Vaga";
 
-function App() {
+export default function App(){
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1>Animes</h1> */}
+      <div className="list">
+        <Vaga/>
+      </div>
     </div>
   );
-}
-
-export default App;
+};

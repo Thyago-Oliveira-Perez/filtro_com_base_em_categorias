@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+* {   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan';
+}
+
+ul{
+    list-style: none;
+}
+
+.header{
+    background-image: url('../images/bg-header-desktop.svg');
+    background-color: hsl(180, 29%, 50%);
+    height: 120px;
+    width: 100%;
+    margin-bottom: 88px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    background-color:hsl(180, 52%, 96%)
+}
+
+.vaga{
+    display: flex;
+    align-items: center;
+    min-width: 800px;
+    margin: 12px 0;
+    padding: 24px;
+    justify-content: space-between;
+    border-radius: 8px;
+    background-color: hsl(180, 31%, 98%);
+    box-shadow: 10px 10px 10px rgb(190, 188, 188);
+}
+
+.infos{
+    width: 100%;
+}
+
+.info-cargo h3, h2{
+    color: hsl(180, 29%, 50%);
+}
+
+.info-cargo h2{
+    color: hsl(180, 14%, 20%)
+}
+
+.info-cargo h2:hover{
+    color: hsl(180, 29%, 50%);
+}
+
+.info-cargo-2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.new-active{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: hsl(180, 29%, 50%);
+    color: hsl(180, 52%, 96%);
+    padding: 10px;
+    margin: 12px;
+}
+
+.new-feature{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: hsl(180, 14%, 20%);
+    color: hsl(180, 52%, 96%);
+    padding: 10px;
+    margin: 12px;
+}
+
+.infos-adicionais p{
+    color: hsl(180, 8%, 52%)
+}
+
+.empresa{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.infos-adicionais{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.filtros{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    justify-content: flex-end;
+    gap: 24px;
+    min-width: 300px;
+}
+
+.filtros button{
+    background: hsl(180, 52%, 96%);
+    color: hsl(180, 29%, 50%);
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-shadow:none;
+    padding: 8px;
+    transition: 0.7s;
+}
+
+.filtros button:hover{
+    background-color: hsl(180, 29%, 50%);
+    color: hsl(180, 52%, 96%);
+}

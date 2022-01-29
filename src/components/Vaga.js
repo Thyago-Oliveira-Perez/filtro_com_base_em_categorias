@@ -33,24 +33,54 @@ function validacaoFeature(item){
     }
 }
 
-function limparBusca(){
-   
-    setLinguagem('');
+function addFiltro(languages){
+    if(!linguagem.includes(languages)){
+        setLinguagem(oldArray => [...oldArray, languages])
+    }
+}
 
+function removeFiltro(value){
+    setLinguagem(oldArray => [...oldArray.filter((item) => item !== value)])
+    console.log(linguagem)
+}
+
+function limparBusca(){
+    setLinguagem('');
 }
 
 return(
     <>
         <div className="container">
         <div className="header"></div>
-        <div className="searchBar">
-            <button onClick={limparBusca}>Clear</button>
-        </div>
+            <div>
+                {linguagem.length === 0 ? null : 
+                    <div className="filtros-selecionados">
+                        {linguagem.includes('') ?  null : linguagem.map((filtro) => (
+                            <ul key={filtro}>
+                                <div className="botao-filtro">
+                                    <div className="botao-linguagem"><p><strong>{filtro}</strong></p></div>
+                                    <div><button className="botao-x" onClick={() => removeFiltro(filtro)}><img src="./images/x.png"/></button></div>
+                                </div>
+                            </ul>
+                        ))}
+                        {linguagem.length === 0 ? null : <button className="botao-clear" onClick={limparBusca}>Clear</button>}              
+                    </div>
+                }
+            </div>
             {datas.filter((item) => {
-                if(linguagem == ""){
-                    return item
-                }else if(item.languages.includes(linguagem)){
-                    return item
+                var i;
+                var ok = 0;
+                if(linguagem == ''){
+                    return item       
+                }else{
+                    for(i = 0; i < linguagem.length; i++){
+                        if(item.languages.includes(linguagem[i])){
+                            ok += 1;
+                            if(ok === linguagem.length){
+                                return item
+                            }
+                        }
+                    }
                 }
             }).map((item) => (
                 <ul key={item.id}>
@@ -58,7 +88,7 @@ return(
                     {validacaoFeature(item)}
                     <div className="vaga">
                         <div className="empresa">
-                            <img src={item.logo}/>
+                            <img src={item.logo} alt="logo empresarial"/>
                             <div className="infos">
                                 <div className="info-cargo">
                                     <div className="info-cargo-2">
@@ -78,7 +108,7 @@ return(
                         <div className="filtros">
                             {item.languages.map((languages) => (
                                 <li key={languages}>
-                                    <button onClick={() => setLinguagem(languages)}><strong>{languages}</strong></button>
+                                    <button onClick={() => addFiltro(languages)}><strong>{languages}</strong></button>
                                 </li>
                             ))}
                         </div>

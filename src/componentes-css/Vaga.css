@@ -8,6 +8,11 @@
     font-family: 'Spartan';
 }
 
+html{
+    background-color: hsl(180, 52%, 96%);
+}
+
+
 ul{
     list-style: none;
 }
@@ -32,15 +37,32 @@ ul{
     box-shadow: 10px 10px 10px rgb(190, 188, 188);
 }
 
-.botao-clear{
+.botao-filtro2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
 
+.botao-clear{
+    background-color: hsl(180, 31%, 98%);
+    color: hsl(180, 29%, 50%);
+    border: 1px solid hsl(180, 31%, 98%);
+    padding: 6px;
+    transition: 0.7s;
+    justify-content: flex-start;
+}
+
+.botao-clear:hover {
+    border-bottom: 2px solid hsl(180, 29%, 50%);
+    transition: 0.5s;
 }
 
 .botao-filtro0{
     background-color: hsl(180, 52%, 96%);
     color: hsl(180, 29%, 50%);
     border: 1px solid #eee;
-    border-radius: 6px;
+    border-radius: 4px;
     text-shadow:none;
     padding: 6px;
     transition: 0.7s;
@@ -55,7 +77,6 @@ ul{
 }
 
 .botao-linguagem{
-    
     color: hsl(180, 29%, 50%);
 }
 
@@ -77,6 +98,7 @@ ul{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 100%;
     width: 100%;
     background-color:hsl(180, 52%, 96%)
 }
